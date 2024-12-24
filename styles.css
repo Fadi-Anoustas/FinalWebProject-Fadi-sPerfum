@@ -1320,3 +1320,39 @@
     transform: scale(0.98); 
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
+/* Main Menu Styling for Mobile Devices */
+@media (max-width: 768px) {
+    .perfume-navbar ul {
+        display: flex;
+        flex-direction: column; /* Stack menu items vertically */
+        align-items: center; /* Center align menu items */
+        gap: 15px; /* Add spacing between menu items */
+        padding: 20px; /* Add padding around the menu */
+    }
+
+    .perfume-navbar li {
+        width: 90%; /* Set a width for consistent box size */
+    }
+
+    .perfume-navbar a {
+        display: block; /* Make links behave like buttons */
+        text-align: center; /* Center align the text */
+        font-size: 1.2rem; /* Increase font size for readability */
+        padding: 15px 20px; /* Add padding for touch targets */
+        background: #1a4430; /* Dark green background */
+        color: #fff; /* White text for contrast */
+        border-radius: 10px; /* Rounded corners for a modern look */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+        text-transform: uppercase; /* Make text consistent */
+        font-weight: bold; /* Make menu text stand out */
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .perfume-navbar a:hover,
+    .perfume-navbar a.active {
+        background: #267d4e; /* Softer green background for hover/active state */
+        transform: scale(1.05); /* Slightly enlarge on hover for interactivity */
+        color: #fff; /* Ensure text is readable */
+    }
+}
+
