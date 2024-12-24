@@ -19,7 +19,7 @@
   *******************************************/
   h1, h2, h3 {
     margin: 0 0 10px;
-    color: #c1f0d6;
+    color: #1daf5f;
   }
   
   a {
@@ -1148,30 +1148,79 @@
     (Already styled as .perfume-btn, 
      but re-adding for clarity)
   *******************************************/
-  .cart-action-buttons .perfume-btn {
-    padding: 12px 30px;
-    background-color: #1a4430;
-    color: #fff;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s ease,
-                box-shadow 0.3s ease,
-                transform 0.2s ease;
-  }
-  
-  .cart-action-buttons .perfume-btn:hover {
-    background-color: #267d4e;
-    box-shadow: 0 0 8px rgba(38, 125, 78, 0.5);
-  }
-  
-  .cart-action-buttons .perfume-btn:active {
-    transform: scale(0.96);
-    box-shadow: inset 0 0 10px rgba(38, 125, 78, 0.8);
-  }
-  
+  /* Cart Section */
+.perfume-cart {
+  text-align: center; /* Center align all content */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 30px auto; /* Center the cart section on the page */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #012503; /* Darker green color */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between the icon and text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.cart-title i {
+  font-size: 1.5rem;
+  color: #0f2d20; /* Match icon color with text */
+}
+
+
+/* Cart Items */
+#perfume-cart-items {
+  margin: 20px 0;
+  text-align: left;
+}
+
+/* Cart Total Price */
+#perfume-total-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+}
+
+/* Action Buttons */
+.cart-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.cart-action-buttons .perfume-btn {
+  padding: 12px 30px;
+  background-color: #1a4430;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.cart-action-buttons .perfume-btn:hover {
+  background-color: #106538;
+  box-shadow: 0 0 8px rgba(38, 125, 78, 0.5);
+}
+
+.cart-action-buttons .perfume-btn:active {
+  transform: scale(0.96);
+  box-shadow: inset 0 0 10px rgba(38, 125, 78, 0.8);
+}
+
   /******************************************
     OPTIONAL: SMALLER IMAGE SIZE WHEN SEARCHING
   *******************************************/
@@ -1322,37 +1371,215 @@
 }
 /* Main Menu Styling for Mobile Devices */
 @media (max-width: 768px) {
-    .perfume-navbar ul {
-        display: flex;
-        flex-direction: column; /* Stack menu items vertically */
-        align-items: center; /* Center align menu items */
-        gap: 15px; /* Add spacing between menu items */
-        padding: 20px; /* Add padding around the menu */
-    }
+  .perfume-navbar ul {
+      display: flex;
+      flex-direction: column; /* Stack menu items vertically */
+      align-items: center; /* Center align menu items */
+      gap: 15px; /* Add spacing between menu items */
+      padding: 20px; /* Add padding around the menu */
+  }
 
-    .perfume-navbar li {
-        width: 90%; /* Set a width for consistent box size */
-    }
+  .perfume-navbar li {
+      width: 90%; /* Set a width for consistent box size */
+  }
 
-    .perfume-navbar a {
-        display: block; /* Make links behave like buttons */
-        text-align: center; /* Center align the text */
-        font-size: 1.2rem; /* Increase font size for readability */
-        padding: 15px 20px; /* Add padding for touch targets */
-        background: #1a4430; /* Dark green background */
-        color: #fff; /* White text for contrast */
-        border-radius: 10px; /* Rounded corners for a modern look */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
-        text-transform: uppercase; /* Make text consistent */
-        font-weight: bold; /* Make menu text stand out */
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
+  .perfume-navbar a {
+      display: block; /* Make links behave like buttons */
+      text-align: center; /* Center align the text */
+      font-size: 1.2rem; /* Increase font size for readability */
+      padding: 15px 20px; /* Add padding for touch targets */
+      background: #1a4430; /* Dark green background */
+      color: #fff; /* White text for contrast */
+      border-radius: 10px; /* Rounded corners for a modern look */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+      text-transform: uppercase; /* Make text consistent */
+      font-weight: bold; /* Make menu text stand out */
+      transition: background 0.3s ease, transform 0.2s ease;
+  }
 
-    .perfume-navbar a:hover,
-    .perfume-navbar a.active {
-        background: #267d4e; /* Softer green background for hover/active state */
-        transform: scale(1.05); /* Slightly enlarge on hover for interactivity */
-        color: #fff; /* Ensure text is readable */
-    }
+  .perfume-navbar a:hover,
+  .perfume-navbar a.active {
+      background: #267d4e; /* Softer green background for hover/active state */
+      transform: scale(1.05); /* Slightly enlarge on hover for interactivity */
+      color: #fff; /* Ensure text is readable */
+  }
+}
+/* General Styles */
+.perfume-navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
+/* Adjust Navigation for Mobile Screens */
+@media (max-width: 768px) {
+  .perfume-navbar ul {
+      flex-direction: column; /* Stack menu items vertically */
+      align-items: center; /* Center align menu items */
+      gap: 15px; /* Add spacing between items */
+  }
+
+  .perfume-navbar a {
+      display: flex;
+      align-items: center; /* Align icons and text vertically */
+      gap: 10px; /* Add spacing between icon and text */
+      font-size: 1rem; /* Adjust font size */
+      padding: 10px 20px; /* Increase touch-friendly padding */
+      border-radius: 8px; /* Rounded corners for buttons */
+      width: 100%; /* Make links span full width */
+      text-align: left; /* Align text to the left */
+      background: #1a1a1a; /* Background for better contrast */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .perfume-navbar a:hover,
+  .perfume-navbar a.active {
+      background: #267d4e; /* Softer green on hover/active */
+      color: #fff; /* Ensure text contrast */
+  }
+
+  .perfume-navbar a i {
+      font-size: 1.2rem; /* Adjust icon size for smaller screens */
+      color: #d4af37; /* Gold icons */
+  }
+}
+
+/* Adjust Social Media Icons for Mobile Screens */
+@media (max-width: 768px) {
+  .social-icons {
+      display: flex;
+      justify-content: center; /* Center align icons */
+      gap: 20px; /* Add spacing between icons */
+      margin-top: 20px; /* Space above social icons */
+  }
+
+  .social-icon {
+      font-size: 1.8rem; /* Slightly larger icons for better visibility */
+      color: #d4af37; /* Gold color */
+      transition: transform 0.2s, color 0.3s;
+  }
+
+  .social-icon:hover {
+      transform: scale(1.1); /* Slight zoom effect */
+      color: #f5c85f; /* Brighter gold on hover */
+  }
+}
+/* Cart Section */
+.perfume-cart {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 30px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart Title */
+.cart-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0f2d20;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Cart Items */
+#perfume-cart-items {
+  margin: 20px 0;
+  text-align: left;
+}
+
+/* Individual Cart Item */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem; /* Smaller font size */
+}
+
+.cart-item img {
+  width: 40px; /* Smaller image */
+  height: 40px;
+  border-radius: 5px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.cart-item-price {
+  color: #555;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+/* Remove Button */
+.cart-item-remove {
+  padding: 5px;
+  font-size: 0.8rem;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-item-remove:hover {
+  background-color: #c0392b;
+}
+
+/* Total Price */
+#perfume-total-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+}
+
+/* Action Buttons */
+.cart-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cart-action-buttons .perfume-btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background-color: #1a4430;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cart-action-buttons .perfume-btn:hover {
+  background-color: #267d4e;
+}
+
+.cart-action-buttons .perfume-btn:active {
+  transform: scale(0.96);
+  box-shadow: inset 0 0 5px rgba(38, 125, 78, 0.8);
+}
