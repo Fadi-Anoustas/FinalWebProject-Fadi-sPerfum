@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Fadi's Perfume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+  
+  <header class="perfume-header">
+    <div class="perfume-container">
+        <div class="perfume-logo">
+            <img src="pic/fadisper.webp" alt="Fadi's Perfume Logo" class="perfume-logo-img">
+            <h1>Fadi's Perfume</h1>
+        </div>
+        <nav class="perfume-navbar">
+            <ul class="perfume-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" >Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="cart.html"class="active">Cart</a></li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+
+
+<section class="perfume-cart">
+    <h2>Your Cart</h2>
+    <div id="perfume-cart-items"></div>
+    <p id="perfume-total-price">Total: $0.00</p>
+
+    
+    <div class="cart-action-buttons">
+        <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+        <a href="checkout.html" class="perfume-btn">Proceed to Checkout</a>
+    </div>
+</section>
+
+
+  
+  <footer class="perfume-footer">
+    <div class="perfume-container">
+        <p>&copy; 2024 Fadi's Perfume. All rights reserved.</p>
+       
+<div class="social-icons">
+    <a href="https://facebook.com" target="_blank" class="social-icon">
+        <img src="pic/f.png" alt="Facebook">
+    </a>
+    <a href="https://wa.me" target="_blank" class="social-icon">
+        <img src="pic/w.png" alt="WhatsApp">
+    </a>
+</div>
+
+    </div>
+  </footer>
+</body>
+</html>

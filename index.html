@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadi's Perfume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+   
+    <header class="perfume-header">
+        <div class="perfume-container">
+            <div class="perfume-logo">
+                <img src="pic/fadisper.webp" alt="Fadi's Perfume Logo" class="perfume-logo-img">
+                <h1>Fadi's Perfume</h1>
+            </div>
+            <nav class="perfume-navbar">
+                <ul class="perfume-nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+            
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search perfumes..." onkeyup="searchPerfumes()">
+            </div>
+        </div>
+    </header>
+
+    
+    <section class="perfume-hero">
+        <video autoplay muted loop playsinline class="perfume-hero-video">
+            <source src="vedios/Luxury Perfume Commercial 3D Animation.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="perfume-hero-overlay">
+            <h2>Discover Your Signature Scent</h2>
+            <p>Explore the finest selection of perfumes curated just for you.</p>
+            <a href="shop.html" class="perfume-btn">Shop Now</a>
+        </div>
+    </section>
+
+    
+    <section class="perfume-featured-products">
+        <h2>Our Bestsellers</h2>
+        <div class="perfume-carousel" id="perfume-featured-carousel">
+            
+        </div>
+    </section>
+
+   
+    <section class="perfume-categories">
+        <h2>Shop by Category</h2>
+        <div class="perfume-category-grid">
+            <div class="perfume-category-card">
+                <img src="pic/p6.jpeg" alt="Men's Perfumes">
+                <h3>Men's Perfumes</h3>
+                <a href="shop.html?category=men" class="perfume-btn">Explore</a>
+            </div>
+            <div class="perfume-category-card">
+                <img src="pic/p4.jpeg" alt="Women's Perfumes">
+                <h3>Women's Perfumes</h3>
+                <a href="shop.html?category=women" class="perfume-btn">Explore</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="perfume-footer">
+        <div class="perfume-container">
+            <p>&copy; 2024 Fadi's Perfume. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="social-icon" id="facebook-icon">
+            <img src="pic/f.png" alt="Facebook">
+        </a>
+        <a href="https://wa.me" target="_blank" class="social-icon" id="whatsapp-icon">
+            <img src="pic/w.png" alt="WhatsApp">
+        </a>
+    </div>
+
+    
+    <script>
+        
+        const products = [
+            { id: 1, name: "Aqva Pour Homme", category: "men", price: 49.99, image: "pic/p9.jpeg" },
+            { id: 2, name: "Emporio Armani", category: "men", price: 59.99, image: "pic/p8.jpeg" },
+            { id: 3, name: "The One by Dolce", category: "women", price: 69.99, image: "pic/p3.webp" },
+            { id: 4, name: "Floris London", category: "women", price: 89.99, image: "pic/p10.jpeg" },
+            { id: 5, name: "Versace Eros", category: "men", price: 64.99, image: "pic/p5.jpeg" },
+            { id: 6, name: "Chanel Coco Mademoiselle", category: "women", price: 74.99, image: "pic/p4.jpeg" }
+        ];
+
+        
+        function loadFeaturedProducts() {
+            const carousel = document.getElementById("perfume-featured-carousel");
+            if (!carousel) return;
+
+            products.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.classList.add("perfume-item");
+                productCard.setAttribute('data-name', product.name);  
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>$${product.price.toFixed(2)}</p>
+                    <button class="perfume-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+                `;
+                carousel.appendChild(productCard);
+            });
+        }
+
+        
+        function searchPerfumes() {
+            const query = document.getElementById('search-bar').value.toLowerCase(); 
+            const products = document.querySelectorAll('.perfume-item'); 
+
+            products.forEach(product => {
+                const name = product.getAttribute('data-name').toLowerCase(); 
+                if (name.includes(query)) {
+                    product.style.display = 'block'; 
+                } else {
+                    product.style.display = 'none'; 
+                }
+            });
+        }
+
+        
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                alert(`${product.name} has been added to your cart!`);
+            }
+        }
+
+        
+        window.addEventListener('DOMContentLoaded', (event) => {
+            loadFeaturedProducts();
+        });
+    </script>
+</body>
+</html>

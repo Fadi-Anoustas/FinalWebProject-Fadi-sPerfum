@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Fadi's Perfume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+   <!-- Header with Logo on All Pages -->
+<header class="perfume-header">
+    <div class="perfume-container">
+        <div class="perfume-logo">
+            <img src="pic/fadisper.webp" alt="Fadi's Perfume Logo" class="perfume-logo-img">
+            <h1>Fadi's Perfume</h1>
+        </div>
+        <nav class="perfume-navbar">
+            <ul class="perfume-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Filters Section -->
+    <section class="perfume-filters">
+        <h2>Filter Products</h2>
+        <select id="perfume-category-filter" onchange="filterProducts()">
+            <option value="all">All</option>
+            <option value="men">Men's Perfumes</option>
+            <option value="women">Women's Perfumes</option>
+        </select>
+
+        <!-- Search Bar for Shop Section -->
+        <div class="search-container">
+            <input type="text" id="search-bar-shop" placeholder="Search perfumes..." onkeyup="searchPerfumes()">
+        </div>
+    </section>
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="social-icon" id="facebook-icon">
+            <img src="pic/f.png" alt="Facebook">
+        </a>
+        <a href="https://wa.me" target="_blank" class="social-icon" id="whatsapp-icon">
+            <img src="pic/w.png" alt="WhatsApp">
+        </a>
+    </div>
+    <!-- Product Grid -->
+    <section class="perfume-shop">
+        <div class="perfume-product-grid" id="perfume-product-list">
+            <!-- Dynamic products loaded via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="perfume-footer">
+        <div class="perfume-container">
+            <p>&copy; 2024 Fadi's Perfume. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
