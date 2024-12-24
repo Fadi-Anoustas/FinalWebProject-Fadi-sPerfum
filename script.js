@@ -257,3 +257,76 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+// Sample product data (this can come from your products array or backend)
+const sampleProducts = [
+    { id: 1, name: "Aqva Pour Homme", price: 49.99, image: "pic/p9.jpeg" },
+    { id: 2, name: "Emporio Armani", price: 59.99, image: "pic/p8.jpeg" },
+    { id: 3, name: "The One by Dolce", price: 69.99, image: "pic/p3.webp" },
+    { id: 4, name: "Floris London", price: 89.99, image: "pic/p10.jpeg" },
+    { id: 5, name: "Versace Eros", price: 64.99, image: "pic/p5.jpeg" },
+    { id: 6, name: "Chanel Coco Mademoiselle", price: 74.99, image: "pic/p4.jpeg" }
+];
+
+// Function to add a product to the cart
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        const existingItem = cart.find(item => item.id === product.id);
+        if (existingItem) {
+            existingItem.quantity += 1; // Increase quantity if already in the cart
+        } else {
+            cart.push({ ...product, quantity: 1 }); // Add new product to the cart
+        }
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save cart to localStorage
+        updateCartDisplay(); // Update cart section
+        alert(`${product.name} has been added to your cart!`);
+    }
+}
+
+// Function to display cart items in the cart section
+function updateCartDisplay() {
+    const cartItemsContainer = document.getElementById("perfume-cart-items");
+    const totalPriceContainer = document.getElementById("perfume-total-price");
+
+    if (!cartItemsContainer || !totalPriceContainer) return;
+
+    // Clear the current cart display
+    cartItemsContainer.innerHTML = "";
+
+    let total = 0;
+
+    // Generate HTML for each cart item
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <p class="cart-item-name">${item.name}</p>
+                    <p class="cart-item-price">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                </div>
+                <button onclick="removeFromCart(${item.id})" class="cart-item-remove">Remove</button>
+            </div>
+        `;
+    });
+
+    // Update total price
+    totalPriceContainer.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Function to remove an item from the cart
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    localStorage.setItem("cart", JSON.stringify(cart)); // Save updated cart to localStorage
+    updateCartDisplay(); // Update cart section
+}
+
+// Function to clear the entire cart
+function clearCart() {
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartDisplay();
+}
+
+// Load the cart display on page load
+document.addEventListener("DOMContentLoaded", updateCartDisplay);
